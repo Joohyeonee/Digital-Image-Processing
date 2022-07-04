@@ -7,15 +7,15 @@
  - 필터의 평균값을 구한 후 Input과 Sum of Product 하는 방식
 
  - convolution, cross-correlation
->(f * g)(x, y) = sum f(i, j)I(x-i, y-j) / (f x g)(x, y) = sum f(i, j)I(x+i, y+j)
-> 원리
->gathering : 여러 픽셀 정보로 하나의 픽셀값 결정
->scattering : 하나의 픽셀 정보로 여러 픽셀값 결정
+ >(f * g)(x, y) = sum f(i, j)I(x-i, y-j) / (f x g)(x, y) = sum f(i, j)I(x+i, y+j)
+ > 원리
+ >gathering : 여러 픽셀 정보로 하나의 픽셀값 결정
+ >scattering : 하나의 픽셀 정보로 여러 픽셀값 결정
 
  - gaussian filter
->디테일한 부분을 없애고 smooth한 이미지 만들 시
->filter의 중심값이 가장 크고 주변부로 갈 수록 값이 줄어듦
->blurry하게 만드는 효과
+ >디테일한 부분을 없애고 smooth한 이미지 만들 시
+ >filter의 중심값이 가장 크고 주변부로 갈 수록 값이 줄어듦
+ >blurry하게 만드는 효과
 
 2. sharpening filter
  - 미분 이용 : Laplacian 미분 적용[f(x+1, y) + f(x-1, y)+ f(x, y+1) + f(x, y-1) - 4f(x, y)]
