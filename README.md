@@ -48,3 +48,14 @@ Spatial Filtering
  >>blurry하게 만드는 효과
 
 >Cross-Correlation vs Convolution : 유사성의 비교 vs 다른 signal 대비 이 signal 비교
+
+Frequency Domain Filtering
+1. Fourier Series
+ - 어떤 함수 f(t)가 주기(T)와 연속형 변수(t)를 가질 때,  f(t) = a * sin(t) + b * cos(t)로 표현될 수 있음 / sin과 cos의 linear combination으로 표현 가능
+2. Impulse
+ - delta(t) = infinite(t = 0), 0(t != 0) (t:continuous)
+ - delta(x) = 1(x = 0), 0(x != 0) (x:discrete)
+3. Fourier Transform
+ - 이미지를 주파수 영역으로 전환하여 이미지 프로세싱 작업이 가능하도록 하는 도구
+ - x 또는 y축을 시간축으로 놓고 좌표의 변화에 따라 변하는 이미지 픽셀의 밝기 변화를 신호로 생각
+ - W x H 이미지에 대한 이산 푸리에 변환에서 F(u, v)는 u, v성분이 아니라 u/W, v/H 성분에 대한 계수를 나타냄
