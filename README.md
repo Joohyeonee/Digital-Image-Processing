@@ -1,4 +1,5 @@
-# Digital-Image-Processing(Spatial Filtering) 
+# Digital-Image-Processing
+Spatial Filtering
  - 영상보다 작은 커널을 정의하고 해당 영역 안에서 연산을 수행한 뒤 다음 픽셀로 옮겨서 진행
  - 이미지를 구성하는 특정한 frequency를 변형시키는 것
  - 각각의 픽셀값들을 이웃한 픽셀값들의 함수에 의해서 바꾼다
