@@ -24,6 +24,37 @@ Spatial Filtering
 >>Laplacian Filter
 >> - f(x+1, y) + f(x-1, y)+ f(x, y+1) + f(x, y-1) - 4f(x, y)
 >> - g(x, y) = f(x, y) + c[delta(f(x, y))] / g(x, y) : 샤프닝 된 영상, f(x, y) : 샤프닝 전 영상
+```
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+# loading image
+img0 = cv2.imread('SanFrancisco.jpg',)
+#img0 = cv2.imread('windows.jpg',)
+
+# converting to gray scale
+gray = cv2.cvtColor(img0, cv2.COLOR_BGR2GRAY)
+
+# remove noise
+img = cv2.GaussianBlur(gray,(3,3),0)
+
+# convolute with proper kernels
+laplacian = cv2.Laplacian(img,cv2.CV_64F)
+sobelx = cv2.Sobel(img,cv2.CV_64F,1,0,ksize=5)  # x
+sobely = cv2.Sobel(img,cv2.CV_64F,0,1,ksize=5)  # y
+
+plt.subplot(2,2,1),plt.imshow(img,cmap = 'gray')
+plt.title('Original'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,2),plt.imshow(laplacian,cmap = 'gray')
+plt.title('Laplacian'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,3),plt.imshow(sobelx,cmap = 'gray')
+plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,4),plt.imshow(sobely,cmap = 'gray')
+plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+```
 >비등방성 필터 : 회전 가변성 필터(그래디언트 이용-로버츠 교차-그래디언트 연산자)
 >>Roberts Cross Filter
 >> - Convolution kernel : 대각선 방향으로 +1과 -1을 배치시켜 검출 효과를 높임, 노이즈에 민감
