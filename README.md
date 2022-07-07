@@ -25,6 +25,7 @@ Spatial Filtering
 >> - f(x+1, y) + f(x-1, y)+ f(x, y+1) + f(x, y-1) - 4f(x, y)
 >> - g(x, y) = f(x, y) + c[delta(f(x, y))] / g(x, y) : 샤프닝 된 영상, f(x, y) : 샤프닝 전 영상
 ```
+#Laplacian Filter
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
@@ -58,6 +59,27 @@ plt.show()
 >비등방성 필터 : 회전 가변성 필터(그래디언트 이용-로버츠 교차-그래디언트 연산자)
 >>Roberts Cross Filter
 >> - Convolution kernel : 대각선 방향으로 +1과 -1을 배치시켜 검출 효과를 높임, 노이즈에 민감
+```
+import cv2 
+import numpy as np
+from scipy import ndimage
+  
+roberts_cross_v = np.array( [[1, 0 ],
+                             [0,-1 ]] )
+  
+roberts_cross_h = np.array( [[ 0, 1 ],
+                             [ -1, 0 ]] )
+  
+img = cv2.imread("input.webp",0).astype('float64')
+img/=255.0
+vertical = ndimage.convolve( img, roberts_cross_v )
+horizontal = ndimage.convolve( img, roberts_cross_h )
+  
+edged_img = np.sqrt( np.square(horizontal) + np.square(vertical))
+edged_img*=255
+cv2.imwrite("output.jpg",edged_img)
+```
+
 >>Prewitt Filter
 >> - x축과 y축의 방향으로 차분을 3번 계산하여 경계 검출, 상하-좌우 경계는 잘 검출하지만 대각선 검출이 약함
 >>Sobel Filter
@@ -106,6 +128,7 @@ high_im.save('high_newskin.bmp','BMP')
 
 
 #Gaussian Filter 생성
+
 def get_gaussian_filter_1d(size, sigma):
     """
     1D 가우시안 필터를 생성한다.
