@@ -55,6 +55,9 @@ plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 
 plt.show()
 ```
+>언샤프 마스킹, 하이부스트 필터링 : 입력 영상 블러링 -> 마스크 얻음(입력 영상 - 블러링 된 영상) -> 마스크를 입력 영상에 더함
+>>g_mask(x, y) = f(x, y) + k * g_mask(x, y)
+>> k = 1 : 언샤프 마스킹, k > 1 : 하이부스트 필터링
 >비등방성 필터 : 회전 가변성 필터(그래디언트 이용-로버츠 교차-그래디언트 연산자)
 >>Roberts Cross Filter
 >> - Convolution kernel : 대각선 방향으로 +1과 -1을 배치시켜 검출 효과를 높임, 노이즈에 민감
