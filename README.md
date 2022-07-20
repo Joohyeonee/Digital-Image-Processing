@@ -5,7 +5,6 @@ Spatial Filtering
 - 각각의 픽셀값들을 이웃한 픽셀값들의 함수에 의해서 바꾼다
 
 1. linear average filter : 불필요한 노이즈 제거 효과
--
 - 필터의 평균값을 구한 후 Input과 Sum of Product 하는 방식
 - convolution, cross-correlation
 >(f * g)(x, y) = sum f(i, j)I(x-i, y-j) / (f x g)(x, y) = sum f(i, j)I(x+i, y+j)
